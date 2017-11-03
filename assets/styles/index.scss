@@ -3,9 +3,9 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import 'colors';
 
 .board {
+  left: 25%;
   position: absolute;
   width: 50%;
-  left: 25%;
 }
 
 .box {
@@ -19,7 +19,7 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 }
 
 .b2 {
-border-top: 0;
+  border-top: 0;
 }
 
 .b3 {
@@ -55,6 +55,8 @@ border-top: 0;
 }
 
 .container-fluid {
+  background-color: $color-nebula;
+  font-family: sans-serif;
   text-align: center;
   text-transform: full-width;
   text-decoration-style: dashed;
