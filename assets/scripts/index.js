@@ -16,17 +16,32 @@ let xMove = true
 const playTurn = function () {
   for (let i = 1; i < 10; i++) {
     $('#b' + i).on('click', function () {
-      if (xMove === true) {
-        $('#b' + i).text('X')
-        xMove = false
-      } else if (xMove === false) {
-        $('#b' + i).text('O')
-        xMove = true
+      if ($('#b' + i).text() === '') {
+        if (xMove === true) {
+          $('#b' + i).text('X')
+          xMove = false
+          userClick.splice((i - 1), 1, 'X')
+          console.log(userClick)
+        } else if (xMove === false) {
+          $('#b' + i).text('O')
+          userClick.splice((i - 1), 1, 'O')
+          xMove = true
+          console.log(userClick)
+        }
+      } else {
+        console.log('wrong move')
       }
     })
   }
 }
 
+// function reset ()
+
+//   for (let i = 1; i < 10; i++) {
+// $('#b' + i)
+// $('#b') = []
+//   }
+// }
 playTurn()
 
 export {
