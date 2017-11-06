@@ -9,7 +9,7 @@ $(() => {
 
 const gameBoard = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 
-const userClick = ['', '', '', '', '', '', '', '', '']
+let userClick = ['', '', '', '', '', '', '', '', '']
 
 const checkWin = function () {
   if ((userClick[0] === userClick[1] && userClick[1] === userClick[2]) && (userClick[0] !== '')) { // horiz
@@ -70,12 +70,31 @@ const checkDraw = function () {
   }
 }
 
+const clearBoard = function () {
+  for (let i = 1; i < 10; i++) {
+    $('#b' + i).text('')
+  }
+}
+
+const clearWin = function () {
+  $('#alertWin').text('')
+}
+
+const reset = function () {
+  $('#r').on('click', function () {
+    userClick = ['', '', '', '', '', '', '', '', '']
+    clearBoard()
+    clearWin()
+  })
+}
+reset()
 playTurn()
 
 export {
   checkFull,
   gameBoard,
   userClick,
+  clearBoard,
   playTurn
 }
 
