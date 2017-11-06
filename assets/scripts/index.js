@@ -43,12 +43,14 @@ const playTurn = function () {
           xMove = false
           userClick.splice((i - 1), 1, 'X')
           console.log(userClick)
+          checkDraw()
           checkWin()
         } else if (xMove === false) {
           $('#b' + i).text('O')
           userClick.splice((i - 1), 1, 'O')
           xMove = true
           console.log(userClick)
+          checkDraw()
           checkWin()
         }
       } else {
@@ -58,9 +60,20 @@ const playTurn = function () {
   }
 }
 
+const checkFull = function (element, index, array) {
+  return element !== ''
+}
+
+const checkDraw = function () {
+  if (userClick.every(checkFull)) {
+    $('#alertWin').text('It\'s a draw!')
+  }
+}
+
 playTurn()
 
 export {
+  checkFull,
   gameBoard,
   userClick,
   playTurn
