@@ -19,27 +19,27 @@ const signUpFailure = function (error) {
 }
 
 const signInFailure = function (error) {
-  console.error(error)
+  console.log(error)
   $('#message').text('Error on sign in')
 }
 
-const changePasswordSuccess = function (error) {
-  console.error(error)
+const changePasswordSuccess = function (data) {
+  console.log(data)
   $('#message').text('changed password succesfully')
 }
 
 const changePasswordFailure = function (error) {
-  console.error(error)
+  console.log(error)
   $('#message').text('Error on change password')
 }
 
-const SignOutSuccesss = function (error) {
-  console.error(error)
+const SignOutSuccesss = function (data) {
+  console.log(data)
   $('#message').text('Signed Out Successfully')
 }
 
 const SignOutFailure = function (error) {
-  console.error(error)
+  console.log(error)
   $('#message').text('Error on Sign Out')
 }
 

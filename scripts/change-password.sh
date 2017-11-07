@@ -11,6 +11,11 @@ curl "${API}${URL_PATH}" \
   --include \
   --request PATCH \
   --header "Content-Type: application/x-www-form-urlencoded" \
-  --data-urlencode ''
+  --data-urlencode '{
+     "passwords": {
+       "old": "'"${OLD_PASSWORD}"'",
+       "new": "'"${NEW_PASSWORD}"'"
+     }
+   }'
 
 echo

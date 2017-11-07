@@ -1,9 +1,7 @@
 #!/bin/bash
 
 # sh scripts/sign-up.sh
-email=google
-PASSWORD=google
-auth: goog
+
 
 
 #API="${API_ORIGIN:-http://httpbin.org}"

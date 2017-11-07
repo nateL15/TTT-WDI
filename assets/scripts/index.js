@@ -2,9 +2,10 @@
 
 const setAPIOrigin = require('../../lib/set-api-origin')
 const config = require('./config')
-
+const events = require('./auth/events')
 $(() => {
   setAPIOrigin(location, config)
+  events.addHandlers()
 })
 
 const gameBoard = [1, 2, 3, 4, 5, 6, 7, 8, 9]
@@ -89,14 +90,6 @@ const reset = function () {
 }
 reset()
 playTurn()
-
-export {
-  checkFull,
-  gameBoard,
-  userClick,
-  clearBoard,
-  playTurn
-}
 
 // use require with a reference to bundle the file and use it in this file
 // const example = require('./example')
