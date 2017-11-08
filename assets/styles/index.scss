@@ -4,7 +4,6 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 
 .board {
   left: 25%;
-  position: absolute;
   width: 50%;
 }
 
@@ -83,6 +82,4 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
   background-color: $color-nebula;
   font-family: sans-serif;
   text-align: center;
-  text-decoration-style: dashed;
-  text-transform: full-width;
 }
