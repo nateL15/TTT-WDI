@@ -6,8 +6,10 @@ const api = require('./api')
 const ui = require('./ui')
 
 const onSignIn = function (event) {
+  console.log('this')
+  console.log('event')
+  console.log('event.target')
   const data = getFormFields(this)
-  console.log('onsignin')
   event.preventDefault()
   api.signIn(data)
     .then(ui.signinSuccess)
