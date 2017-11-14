@@ -6,7 +6,7 @@ const signUpSuccess = function (data) {
   $('#message').text('Signed up succesfully')
 }
 
-const signinSuccess = function (data) {
+const signInSuccess = function (data) {
   console.log('data is ', data)
   store.user = data.user
   console.log('store is ', store)
@@ -51,5 +51,5 @@ module.exports = {
   changePasswordFailure,
   SignOutSuccesss,
   SignOutFailure,
-  signinSuccess
+  signInSuccess
 }

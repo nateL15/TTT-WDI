@@ -6,29 +6,30 @@ const api = require('./api')
 const ui = require('./ui')
 
 const onSignIn = function (event) {
-  console.log('this')
-  console.log('event')
-  console.log('event.target')
-  const data = getFormFields(this)
   event.preventDefault()
+  const data = getFormFields(this)
+  console.log(data)
   api.signIn(data)
-    .then(ui.signinSuccess)
-    .catch(ui.signinFailure)
+  // console.log('this')
+  // console.log('event')
+  // console.log('event.target')
+    .then(ui.signInSuccess)
+    .catch(ui.signInFailure)
 }
 
 const onSignUp = function (event) {
+  event.preventDefault()
   const data = getFormFields(this)
   console.log('onSignUp')
-  event.preventDefault()
-  api.signIn(data)
+  api.signUp(data)
     .then(ui.signUpSuccess)
     .catch(ui.signUpFailure)
 }
 
 const onChangePassword = function (event) {
+  event.preventDefault()
   const data = getFormFields(this)
   console.log('onChangePassword')
-  event.preventDefault()
   api.changePassword(data)
     .then(ui.changePasswordSuccess)
     .catch(ui.changePasswordFailure)
@@ -49,6 +50,9 @@ const addHandlers = function () {
 }
 
 module.exports = {
-  addHandlers
-
+  addHandlers,
+  onSignOut,
+  onSignUp,
+  onSignIn,
+  onChangePassword
 }
