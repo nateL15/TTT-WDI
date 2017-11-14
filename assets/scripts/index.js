@@ -19,7 +19,7 @@ const checkWin = function () {
     $('#alertWin').text(userClick[3] + ' wins!')
   } else if ((userClick[6] === userClick[7] && userClick[7] === userClick[8]) && (userClick[6] !== '')) {
     $('#alertWin').text(userClick[6] + ' wins!')
-  } else if ((userClick[0] === userClick[3] && userClick[3] === userClick[7]) && (userClick[0] !== '')) { // vert
+  } else if ((userClick[0] === userClick[3] && userClick[3] === userClick[6]) && (userClick[0] !== '')) { // vert
     $('#alertWin').text(userClick[0] + ' wins!')
   } else if ((userClick[1] === userClick[4] && userClick[4] === userClick[7]) && (userClick[1] !== '')) {
     $('#alertWin').text(userClick[1] + ' wins!')
