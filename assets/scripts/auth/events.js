@@ -49,6 +49,11 @@ const addHandlers = function () {
 }
 
 module.exports = {
-  addHandlers
+  addHandlers,
+  onChangePassword,
+  onSignOut,
+  onSignIn,
+  getFormFields,
+  onSignUp
 
 }
