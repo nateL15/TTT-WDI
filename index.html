@@ -14,9 +14,7 @@
     <body class="container-fluid">
       <h1>TIC TAC TOE</h1>
 
-      <p>GOTY EDITION</p>
-
-      <div class="board">
+      <div class="board"></div>
   <div class="win" id='alertWin'></div>
 
       <div class="row">
@@ -34,7 +32,46 @@
           <div class="col-xs-4 box b8" id=b8></div>
           <div class="col-xs-4 box b9" id=b9></div>
         </div>
-      </div>
+      <button type="reset" class="btn btn primary" id="r">Reset</button>
+      <div class="row">
+<br>
+    <h2>Login</h2>
+    <form class="form-signin" id="sign-in">
+      <input type="text" class="form-control" name="username" placeholder="Email Address" required="" autofocus="" />
+      <input type="password" class="form-control" name="password" placeholder="Password" required=""/>
+      <button type="submit" class="btn btn-lg btn-primary btn-block">Login</button>
+    </form>
+    <br>
+    <br>
+    <h2>Register</h2>
+    <form class="form-signin" id="sign-up">
+    <input type ="text" class="form-control"
+    name="username" placeholder="Email Address"
+    required="" autofocus="" />
+    <input type="password" class="form-control" name="password" placeholder="Password" required=""/>
 
+      <input type="password" class="form-control" name="password" placeholder="Confirm Password" required=""/>
+
+      <button type="submit" class="btn btn-lg btn-primary btn-block">Register</button>
+    </form>
+      <br>
+      <br>
+      <h2>Change password</h2>
+      <form class="form-signin"  id="change-password">
+      <input type="password" class="form-control" name="password" placeholder="Old Password" required=""/>
+
+        <input type="password" class="form-control" name="password" placeholder="New Password" required=""/>
+
+          <input type="password" class="form-control" name="password" placeholder="Confirm New Password" required=""/>
+
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Change Password</button>
+    </form>
+<br>
+<br>
+<form class="form-signout"  id="sign-out">
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Out</button>
+    </form>
+</div>
+      <p id="message"></p>
     </body>
 </html>

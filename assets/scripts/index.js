@@ -2,14 +2,13 @@
 
 const setAPIOrigin = require('../../lib/set-api-origin')
 const config = require('./config')
-
+const events = require('./auth/events')
 $(() => {
   setAPIOrigin(location, config)
+  events.addHandlers()
 })
 
-const gameBoard = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-
-const userClick = ['', '', '', '', '', '', '', '', '']
+let userClick = ['', '', '', '', '', '', '', '', '']
 
 const checkWin = function () {
   if ((userClick[0] === userClick[1] && userClick[1] === userClick[2]) && (userClick[0] !== '')) { // horiz
@@ -43,12 +42,14 @@ const playTurn = function () {
           xMove = false
           userClick.splice((i - 1), 1, 'X')
           console.log(userClick)
+          checkDraw()
           checkWin()
         } else if (xMove === false) {
           $('#b' + i).text('O')
           userClick.splice((i - 1), 1, 'O')
           xMove = true
           console.log(userClick)
+          checkDraw()
           checkWin()
         }
       } else {
@@ -58,13 +59,35 @@ const playTurn = function () {
   }
 }
 
-playTurn()
-
-export {
-  gameBoard,
-  userClick,
-  playTurn
+const checkFull = function (element, index, array) {
+  return element !== ''
 }
+
+const checkDraw = function () {
+  if (userClick.every(checkFull)) {
+    $('#alertWin').text('It\'s a draw!')
+  }
+}
+
+const clearBoard = function () {
+  for (let i = 1; i < 10; i++) {
+    $('#b' + i).text('')
+  }
+}
+
+const clearWin = function () {
+  $('#alertWin').text('')
+}
+
+const reset = function () {
+  $('#r').on('click', function () {
+    userClick = ['', '', '', '', '', '', '', '', '']
+    clearBoard()
+    clearWin()
+  })
+}
+reset()
+playTurn()
 
 // use require with a reference to bundle the file and use it in this file
 // const example = require('./example')
