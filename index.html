@@ -14,7 +14,7 @@
     <body class="container-fluid">
       <h1>TIC TAC TOE</h1>
 
-      <div class="board"></div>
+  <div class="board"></div>
   <div class="win" id='alertWin'></div>
 
       <div class="row">
@@ -39,8 +39,8 @@
     <form id="sign-in">
       <fieldset>
       <input type="text" name="credentials[email]" placeholder="Email Address"/>
-      <input type="password" class="form-control" name="credentials[password]" placeholder="Password">
-      <button type="submit" class="btn btn-lg btn-primary btn-block">Login</button>
+      <input type="password" name="credentials[password]" placeholder="Password">
+      <button type="submit" class="btn btn-lg btn-primary">Login</button>
     </fieldset>
     </form>
     <br>
@@ -56,7 +56,7 @@
 
       <input type="password" name="credentials[password]" placeholder="Confirm Password">
 
-      <button type="submit" class="btn btn-lg btn-primary btn-block">Register</button>
+      <button type="submit" class="btn btn-lg btn-primary">Register</button>
     </fieldset>
     </form>
 
@@ -65,13 +65,13 @@
       <h2>Change password</h2>
       <form id="change-password">
       <fieldset>
-      <input type="password" name="passwords[old]" placeholder="Old Password" required=""/>
+      <input type="password" name="passwords[old]" placeholder="Old Password">
 
-        <input type="password" name="passwords[new]" placeholder="New Password" required=""/>
+        <input type="password" name="passwords[new]" placeholder="New Password">
 
           <input type="password" name="passwords[new]" placeholder="Confirm New Password" required=""/>
 
-      <button class="btn btn-lg btn-primary btn-block" type="submit">Change Password</button>
+      <button class="btn btn-lg btn-primary" type="submit">Change Password</button>
     </fieldset>
     </form>
 <br>
@@ -79,7 +79,7 @@
 
 <form id="sign-out">
       <fieldset>
-      <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Out</button>
+      <button class="btn btn-lg btn-primary" type="submit">Sign Out</button>
     </fieldset>
     </form>
 

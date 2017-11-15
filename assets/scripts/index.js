@@ -3,6 +3,9 @@
 const setAPIOrigin = require('../../lib/set-api-origin')
 const config = require('./config')
 const events = require('./auth/events')
+
+$('#box').hide()
+
 $(() => {
   setAPIOrigin(location, config)
   events.addHandlers()
