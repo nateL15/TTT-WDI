@@ -9,12 +9,12 @@
  API="${API_ORIGIN:-https://ga-library-api.herokuapp.com}"
  URL_PATH="/sign-up"
 
-#http://httpbin.org/post
+
 curl "${API}${URL_PATH}" \
   --include \
   --request POST \
-  --header "Content-Type: application/x-www-form-urlencoded" \
-  --data-urlencode '{
+  --header "Content-Type: application/json" \
+  --data '{
     "credentials":
       "email": "'"${EMAIL}"'"
       "password"; "'"${PASSWORD}"'"

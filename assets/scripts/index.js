@@ -1,11 +1,13 @@
-'use strict'
 
+'use strict'
 const setAPIOrigin = require('../../lib/set-api-origin')
 const config = require('./config')
 const events = require('./auth/events')
+
 $(() => {
   setAPIOrigin(location, config)
   events.addHandlers()
+  playTurn()
 })
 
 const stopClick = function () {

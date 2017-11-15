@@ -5,25 +5,20 @@ const getFormFields = require(`../../../lib/get-form-fields`)
 const api = require('./api')
 const ui = require('./ui')
 
-const onSignIn = function (event) {
-  event.preventDefault()
-  const data = getFormFields(this)
-  console.log(data)
-  api.signIn(data)
-  // console.log('this')
-  // console.log('event')
-  // console.log('event.target')
-    .then(ui.signInSuccess)
-    .catch(ui.signInFailure)
-}
-
 const onSignUp = function (event) {
-  event.preventDefault()
   const data = getFormFields(this)
-  console.log('onSignUp')
+  event.preventDefault()
   api.signUp(data)
     .then(ui.signUpSuccess)
     .catch(ui.signUpFailure)
+}
+
+const onSignIn = function (event) {
+  const data = getFormFields(this)
+  event.preventDefault()
+  api.signIn(data)
+    .then(ui.signinSuccess)
+    .catch(ui.signinFailure)
 }
 
 const onChangePassword = function (event) {
@@ -37,7 +32,7 @@ const onChangePassword = function (event) {
 
 const onSignOut = function (event) {
   event.preventDefault()
-  api.SignOut()
+  api.signOut()
     .then(ui.SignOutSuccesss)
     .catch(ui.SignOutFailure)
 }
@@ -51,8 +46,10 @@ const addHandlers = function () {
 
 module.exports = {
   addHandlers,
+  onChangePassword,
   onSignOut,
-  onSignUp,
   onSignIn,
-  onChangePassword
+  getFormFields,
+  onSignUp
+
 }

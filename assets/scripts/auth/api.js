@@ -7,21 +7,18 @@ const signUp = function (data) {
     url: config.apiOrigin + '/sign-up',
     method: 'POST',
     data
-  // data: data
   })
 }
 
 const signIn = function (data) {
-  console.log(data)
   return $.ajax({
     url: config.apiOrigin + '/sign-in',
     method: 'POST',
     data
-    // data: data
   })
 }
 
-const ChangePassword = function (data) {
+const changePassword = function (data) {
   return $.ajax({
     url: config.apiOrigin + '/change-password/' + store.user.id,
     method: 'PATCH',
@@ -29,11 +26,10 @@ const ChangePassword = function (data) {
       Authorization: 'Token token=' + store.user.token
     },
     data
-    // data: data
   })
 }
 
-const SignOut = function (data) {
+const signOut = function (data) {
   return $.ajax({
     url: config.apiOrigin + '/sign-out/' + store.user.id,
     method: 'DELETE',
@@ -41,13 +37,12 @@ const SignOut = function (data) {
       Authorization: 'Token token=' + store.user.token
     },
     data
-    // data: data
   })
 }
 
 module.exports = {
   signIn,
   signUp,
-  ChangePassword,
-  SignOut
+  changePassword,
+  signOut
 }
