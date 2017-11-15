@@ -1,23 +1,22 @@
-'use strict'
 
+'use strict'
 const setAPIOrigin = require('../../lib/set-api-origin')
 const config = require('./config')
 const events = require('./auth/events')
 
-$('#box').hide()
-
 $(() => {
   setAPIOrigin(location, config)
   events.addHandlers()
+  playTurn()
 })
+
+let userClick = ['', '', '', '', '', '', '', '', '']
 
 const stopClick = function () {
   $('.box').off('click')
 }
 
 stopClick()
-
-let userClick = ['', '', '', '', '', '', '', '', '']
 
 const checkWin = function () {
   if ((userClick[0] === userClick[1] && userClick[1] === userClick[2]) && (userClick[0] !== '')) {
