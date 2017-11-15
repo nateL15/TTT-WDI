@@ -36,41 +36,53 @@
       <div class="row">
 <br>
     <h2>Login</h2>
-    <form class="form-signin" id="sign-in">
-      <input type="text" class="form-control" name="username" placeholder="Email Address" required="" autofocus="" />
-      <input type="password" class="form-control" name="password" placeholder="Password" required=""/>
+    <form id="sign-in">
+      <fieldset>
+      <input type="text" name="credentials[email]" placeholder="Email Address"/>
+      <input type="password" class="form-control" name="credentials[password]" placeholder="Password">
       <button type="submit" class="btn btn-lg btn-primary btn-block">Login</button>
+    </fieldset>
     </form>
     <br>
     <br>
-    <h2>Register</h2>
-    <form class="form-signin" id="sign-up">
-    <input type ="text" class="form-control"
-    name="username" placeholder="Email Address"
-    required="" autofocus="" />
-    <input type="password" class="form-control" name="password" placeholder="Password" required=""/>
 
-      <input type="password" class="form-control" name="password" placeholder="Confirm Password" required=""/>
+    <h2>Register</h2>
+    <form id="sign-up">
+    <fieldset>
+    <input type ="text"
+    name="credentials[email]" placeholder="Email Address">
+
+    <input type="password" name="credentials[password]" placeholder="Password">
+
+      <input type="password" name="credentials[password]" placeholder="Confirm Password">
 
       <button type="submit" class="btn btn-lg btn-primary btn-block">Register</button>
+    </fieldset>
     </form>
+
       <br>
       <br>
       <h2>Change password</h2>
-      <form class="form-signin"  id="change-password">
-      <input type="password" class="form-control" name="password" placeholder="Old Password" required=""/>
+      <form id="change-password">
+      <fieldset>
+      <input type="password" name="passwords[old]" placeholder="Old Password" required=""/>
 
-        <input type="password" class="form-control" name="password" placeholder="New Password" required=""/>
+        <input type="password" name="passwords[new]" placeholder="New Password" required=""/>
 
-          <input type="password" class="form-control" name="password" placeholder="Confirm New Password" required=""/>
+          <input type="password" name="passwords[new]" placeholder="Confirm New Password" required=""/>
 
       <button class="btn btn-lg btn-primary btn-block" type="submit">Change Password</button>
+    </fieldset>
     </form>
 <br>
 <br>
-<form class="form-signout"  id="sign-out">
+
+<form id="sign-out">
+      <fieldset>
       <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Out</button>
+    </fieldset>
     </form>
+
 </div>
       <p id="message"></p>
     </body>
