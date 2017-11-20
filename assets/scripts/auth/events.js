@@ -5,14 +5,6 @@ const getFormFields = require(`../../../lib/get-form-fields`)
 const api = require('./api')
 const ui = require('./ui')
 
-const onSignUp = function (event) {
-  const data = getFormFields(this)
-  event.preventDefault()
-  api.signUp(data)
-    .then(ui.signUpSuccess)
-    .catch(ui.signUpFailure)
-}
-
 const onSignIn = function (event) {
   const data = getFormFields(this)
   event.preventDefault()
@@ -21,9 +13,16 @@ const onSignIn = function (event) {
     .catch(ui.signinFailure)
 }
 
+const onSignUp = function (event) {
+  const data = getFormFields(this)
+  event.preventDefault()
+  api.signUp(data)
+    .then(ui.signUpSuccess)
+    .catch(ui.signUpFailure)
+}
+
 const onChangePassword = function (event) {
   const data = getFormFields(this)
-  console.log('onChangePassword')
   event.preventDefault()
   api.changePassword(data)
     .then(ui.changePasswordSuccess)
@@ -33,8 +32,19 @@ const onChangePassword = function (event) {
 const onSignOut = function (event) {
   event.preventDefault()
   api.signOut()
-    .then(ui.SignOutSuccesss)
-    .catch(ui.SignOutFailure)
+    .then(ui.signOutSuccess)
+    .catch(ui.signOutFailure)
+}
+const newGame = function () {
+  api.createGame()
+    .then(ui.startNewGame)
+    .catch(ui.startNewGameFailure)
+}
+
+const gamePlayed = function () {
+  api.gamesPlayed()
+    .then(ui.getGamesPlayed)
+    .catch(ui.getGamesFailure)
 }
 
 const addHandlers = function () {
@@ -42,6 +52,8 @@ const addHandlers = function () {
   $('#sign-up').on('submit', onSignUp)
   $('#sign-out').on('submit', onSignOut)
   $('#change-password').on('submit', onChangePassword)
+  $('#getGames').on('submit', gamePlayed)
+  $('#r').on('submit', newGame)
 }
 
 module.exports = {
@@ -50,6 +62,7 @@ module.exports = {
   onSignOut,
   onSignIn,
   getFormFields,
-  onSignUp
+  onSignUp,
+  gamePlayed
 
 }

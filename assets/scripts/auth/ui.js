@@ -25,7 +25,7 @@ const signInFailure = function (error) {
 
 const changePasswordSuccess = function (data) {
   console.log(data)
-  $('#message').text('changed password succesfully')
+  $('#message').text('Changed password succesfully')
 }
 
 const changePasswordFailure = function (error) {
@@ -33,23 +33,47 @@ const changePasswordFailure = function (error) {
   $('#message').text('Error on change password')
 }
 
-const SignOutSuccesss = function (data) {
+const signOutSuccesss = function (data) {
   console.log(data)
   $('#message').text('Signed Out Successfully')
 }
 
-const SignOutFailure = function (error) {
+const signOutFailure = function (error) {
   console.log(error)
   $('#message').text('Error on Sign Out')
+}
+
+const startNewGame = function (data) {
+  store.game = data.games
+  $('#message').text('New game started!')
+}
+
+const startNewGameFailure = function (error) {
+  console.log(error)
+  $('#message').text('Failed to start new game!')
+}
+
+const getGamesPlayed = function (data) {
+  store.game = data.game
+  $('#message').text('Retrieved Games Played')
+}
+
+const getGamesFailure = function (error) {
+  console.log(error)
+  $('$message').text('Error retrieving Games Played')
 }
 
 module.exports = {
   signUpSuccess,
   signUpFailure,
   signInFailure,
+  startNewGame,
+  startNewGameFailure,
   changePasswordSuccess,
   changePasswordFailure,
-  SignOutSuccesss,
-  SignOutFailure,
+  signOutSuccesss,
+  signOutFailure,
+  getGamesPlayed,
+  getGamesFailure,
   signinSuccess
 }

@@ -67,8 +67,6 @@ const playTurn = function () {
           checkDraw()
           checkWin()
         }
-      } else {
-        console.log('wrong move')
       }
     })
   }
@@ -95,7 +93,7 @@ const clearWin = function () {
   $('#alertWin').text('')
 }
 
-const reset = function () {
+const newGame = function () {
   $('#r').on('click', function () {
     userClick = ['', '', '', '', '', '', '', '', '']
     clearBoard()
@@ -103,7 +101,7 @@ const reset = function () {
     playTurn()
   })
 }
-reset()
+newGame()
 playTurn()
 
 // use require with a reference to bundle the file and use it in this file
