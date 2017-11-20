@@ -8,6 +8,8 @@ Git Version control
 
 Tools used in Planning:
 
+Wireframe: https://imgur.com/gallery/eD3fF
+
 User Stories;
 
 I need to be able to create an account.
