@@ -4,19 +4,45 @@ const setAPIOrigin = require('../../lib/set-api-origin')
 const config = require('./config')
 const events = require('./auth/events')
 
+const stopClick = function () {
+  $('.box').off('click')
+}
+
+let userClick = ['', '', '', '', '', '', '', '', '']
+
+let xMove = true
+
+const playTurn = function () {
+  for (let i = 1; i < 10; i++) {
+    $('#b' + i).on('click', function () {
+      if ($('#b' + i).text() === '') {
+        if (xMove === true) {
+          $('#b' + i).text('X')
+          xMove = false
+          userClick.splice((i - 1), 1, 'X')
+          console.log(userClick)
+          checkDraw()
+          checkWin()
+        } else if (xMove === false) {
+          $('#b' + i).text('O')
+          userClick.splice((i - 1), 1, 'O')
+          xMove = true
+          console.log(userClick)
+          checkDraw()
+          checkWin()
+        }
+      }
+    })
+  }
+}
+
 $(() => {
   setAPIOrigin(location, config)
   events.addHandlers()
   playTurn()
 })
 
-const stopClick = function () {
-  $('.box').off('click')
-}
-
 stopClick()
-
-let userClick = ['', '', '', '', '', '', '', '', '']
 
 const checkWin = function () {
   if ((userClick[0] === userClick[1] && userClick[1] === userClick[2]) && (userClick[0] !== '')) {
@@ -46,34 +72,6 @@ const checkWin = function () {
   }
 }
 
-let xMove = true
-
-const playTurn = function () {
-  for (let i = 1; i < 10; i++) {
-    $('#b' + i).on('click', function () {
-      if ($('#b' + i).text() === '') {
-        if (xMove === true) {
-          $('#b' + i).text('X')
-          xMove = false
-          userClick.splice((i - 1), 1, 'X')
-          console.log(userClick)
-          checkDraw()
-          checkWin()
-        } else if (xMove === false) {
-          $('#b' + i).text('O')
-          userClick.splice((i - 1), 1, 'O')
-          xMove = true
-          console.log(userClick)
-          checkDraw()
-          checkWin()
-        }
-      } else {
-        console.log('wrong move')
-      }
-    })
-  }
-}
-
 const checkFull = function (element, index, array) {
   return element !== ''
 }
@@ -95,7 +93,7 @@ const clearWin = function () {
   $('#alertWin').text('')
 }
 
-const reset = function () {
+const newGame = function () {
   $('#r').on('click', function () {
     userClick = ['', '', '', '', '', '', '', '', '']
     clearBoard()
@@ -103,7 +101,7 @@ const reset = function () {
     playTurn()
   })
 }
-reset()
+newGame()
 playTurn()
 
 // use require with a reference to bundle the file and use it in this file
