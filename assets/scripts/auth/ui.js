@@ -44,7 +44,7 @@ const signOutFailure = function (error) {
 }
 
 const startNewGame = function (data) {
-  store.game = data.games
+  store.user.game = data.games
   $('#message').text('New game started!')
 }
 
@@ -54,13 +54,13 @@ const startNewGameFailure = function (error) {
 }
 
 const getGamesPlayed = function (data) {
-  store.game = data.game
-  $('#message').text('Retrieved Games Played')
+  store.user.game = data.game
+  $('#message').text(data.games.length + ' games played!')
 }
 
 const getGamesFailure = function (error) {
   console.log(error)
-  $('$message').text('Error retrieving Games Played')
+  $('#message').text('Error retrieving Games Played')
 }
 
 module.exports = {

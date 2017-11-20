@@ -4,17 +4,43 @@ const setAPIOrigin = require('../../lib/set-api-origin')
 const config = require('./config')
 const events = require('./auth/events')
 
+const stopClick = function () {
+  $('.box').off('click')
+}
+
+let userClick = ['', '', '', '', '', '', '', '', '']
+
+let xMove = true
+
+const playTurn = function () {
+  for (let i = 1; i < 10; i++) {
+    $('#b' + i).on('click', function () {
+      if ($('#b' + i).text() === '') {
+        if (xMove === true) {
+          $('#b' + i).text('X')
+          xMove = false
+          userClick.splice((i - 1), 1, 'X')
+          console.log(userClick)
+          checkDraw()
+          checkWin()
+        } else if (xMove === false) {
+          $('#b' + i).text('O')
+          userClick.splice((i - 1), 1, 'O')
+          xMove = true
+          console.log(userClick)
+          checkDraw()
+          checkWin()
+        }
+      }
+    })
+  }
+}
+
 $(() => {
   setAPIOrigin(location, config)
   events.addHandlers()
   playTurn()
 })
-
-let userClick = ['', '', '', '', '', '', '', '', '']
-
-const stopClick = function () {
-  $('.box').off('click')
-}
 
 stopClick()
 
@@ -43,32 +69,6 @@ const checkWin = function () {
   } else if ((userClick[2] === userClick[4] && userClick[4] === userClick[6]) && (userClick[2] !== '')) {
     stopClick()
     $('#alertWin').text(userClick[2] + ' wins!')
-  }
-}
-
-let xMove = true
-
-const playTurn = function () {
-  for (let i = 1; i < 10; i++) {
-    $('#b' + i).on('click', function () {
-      if ($('#b' + i).text() === '') {
-        if (xMove === true) {
-          $('#b' + i).text('X')
-          xMove = false
-          userClick.splice((i - 1), 1, 'X')
-          console.log(userClick)
-          checkDraw()
-          checkWin()
-        } else if (xMove === false) {
-          $('#b' + i).text('O')
-          userClick.splice((i - 1), 1, 'O')
-          xMove = true
-          console.log(userClick)
-          checkDraw()
-          checkWin()
-        }
-      }
-    })
   }
 }
 
