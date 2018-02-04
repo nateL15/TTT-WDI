@@ -1,19 +1,10 @@
 'use strict'
 
-const getFormFields = require(`../../../lib/get-form-fields`)
-
-const api = require('./api')
 const ui = require('./ui')
-const store = require('../store')
+const getFormFields = require(`../../../lib/get-form-fields`)
+const api = require('./api')
 
-const onSignIn = function (event) {
-  const data = getFormFields(this)
-  event.preventDefault()
-  api.signIn(data)
-    .then(ui.signinSuccess)
-    .catch(ui.signinFailure)
-}
-
+// on sign up
 const onSignUp = function (event) {
   const data = getFormFields(this)
   event.preventDefault()
@@ -22,15 +13,27 @@ const onSignUp = function (event) {
     .catch(ui.signUpFailure)
 }
 
-const onChangePassword = function (event) {
-  event.preventDefault()
+// on sign in
+const onSignIn = function (event) {
   const data = getFormFields(this)
+  console.log(event)
+  event.preventDefault()
+  api.signIn(data)
+    .then(ui.signInSuccess)
+    .catch(ui.signInFailure)
+}
+
+// on change password
+const onChangePassword = function (event) {
+  const data = getFormFields(this)
+  console.log(data)
   event.preventDefault()
   api.changePassword(data)
     .then(ui.changePasswordSuccess)
     .catch(ui.changePasswordFailure)
 }
 
+// on sign out
 const onSignOut = function (event) {
   event.preventDefault()
   api.signOut()
@@ -38,12 +41,12 @@ const onSignOut = function (event) {
     .catch(ui.signOutFailure)
 }
 
-const storeGame = function (event) {
-  const data = store.gamePlayed
-  api.createGame(data)
-    .then(ui.gameStoredSuccess)
-    .catch(ui.gameStoredFailure)
-}
+// const storeGame = function (event) {
+//   const data = store.gamePlayed
+//   api.createGame(data)
+//     .then(ui.gameStoredSuccess)
+//     .catch(ui.gameStoredFailure)
+// }
 
 const newGame = function (event) {
   event.preventDefault()
@@ -59,11 +62,12 @@ const gamePlayed = function () {
     .catch(ui.getGamesFailure)
 }
 
+// event handlers
 const addHandlers = function () {
-  $('#sign-in').on('submit', onSignIn)
   $('#sign-up').on('submit', onSignUp)
-  $('#sign-out').on('submit', onSignOut)
+  $('#sign-in').on('submit', onSignIn)
   $('#change-password').on('submit', onChangePassword)
+  $('#sign-out').on('click', onSignOut)
   $('#getGames').on('submit', gamePlayed)
   $('#r').on('submit', newGame)
 }
@@ -72,7 +76,7 @@ module.exports = {
   addHandlers,
   onChangePassword,
   gamePlayed,
-  storeGame,
+  // storeGame,
   onSignOut,
   onSignIn,
   getFormFields,

@@ -7,9 +7,7 @@ const signUpSuccess = function (data) {
 }
 
 const signInSuccess = function (data) {
-  console.log('data is ', data)
   store.user = data.user
-  console.log('store is ', store)
   $('#message').text('Signed in succesfully')
 }
 
